@@ -7,16 +7,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class queryService implements CommandLineRunner {
 
+    // @Autowired
+    // queryRunner queryRunner;
+
     @Autowired
-    queryRunner queryRunner;
+    JAPRepository japRepository;
 
     public void run(String... args) throws Exception {
-        queryRunner.insert(new Student(1, "Raju", "raju@xyz.com"));
-        queryRunner.insert(new Student(2, "Ram", "ram@xyz.com"));
-        queryRunner.insert(new Student(3, "Rahul", "rahul@xyz.com"));
-        queryRunner.delete(1);
-        System.out.println(queryRunner.findById(2));
-        System.out.println(queryRunner.findById(3));
+        japRepository.insert(new Student(1, "Raju", "raju@xyz.com"));
+        japRepository.insert(new Student(2, "Ram", "ram@xyz.com"));
+        japRepository.insert(new Student(3, "Rahul", "rahul@jpa.com"));
+        japRepository.delete(1);
+        System.out.println(japRepository.select(2));
+        System.out.println(japRepository.select(3));
     }
 
 }

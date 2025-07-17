@@ -1,8 +1,16 @@
 package com.practise.spring.learn_JPA_Spring.customJdbcTemplate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity (name = "students")
 public class Student {
+    @Id
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "email")
     private String email;
 
     public Student(int id, String name, String email) {
